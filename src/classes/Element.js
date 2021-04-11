@@ -88,11 +88,6 @@ export class Element {
         );
 
         if (this.props.easing && EasingFunctions[this.props.easing]) {
-            console.log(this.percent);
-            console.log(
-                this.percent *
-                    EasingFunctions[this.props.easing](this.percent / 100)
-            );
             setParallaxStyles(
                 this.elInner,
                 this.offsets,

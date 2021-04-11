@@ -83,8 +83,6 @@ function () {
       this.percent = (0, _index2.percentMoved)(this.rect.top, this.rect.originTotalDistY, view.height, scroll.y);
 
       if (this.props.easing && _index2.EasingFunctions[this.props.easing]) {
-        console.log(this.percent);
-        console.log(this.percent * _index2.EasingFunctions[this.props.easing](this.percent / 100));
         (0, _index2.setParallaxStyles)(this.elInner, this.offsets, this.percent * _index2.EasingFunctions[this.props.easing](this.percent / 100));
       } else {
         (0, _index2.setParallaxStyles)(this.elInner, this.offsets, this.percent);

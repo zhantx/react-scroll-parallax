@@ -19,6 +19,7 @@ class Parallax extends Component {
         parallaxController: PropTypes.object,
         styleInner: PropTypes.object,
         styleOuter: PropTypes.object,
+        easing: PropTypes.string,
         tagInner: PropTypes.string.isRequired,
         tagOuter: PropTypes.string.isRequired,
         x: PropTypes.arrayOf(
@@ -72,6 +73,7 @@ class Parallax extends Component {
             elInner: this._inner,
             elOuter: this._outer,
             props: {
+                easing: this.props.easing,
                 disabled: this.props.disabled,
                 x0: this.props.x[0],
                 x1: this.props.x[1],
@@ -85,11 +87,11 @@ class Parallax extends Component {
         return this.props.parallaxController;
     }
 
-    mapRefOuter = ref => {
+    mapRefOuter = (ref) => {
         this._outer = ref;
     };
 
-    mapRefInner = ref => {
+    mapRefInner = (ref) => {
         this._inner = ref;
     };
 

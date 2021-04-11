@@ -4,7 +4,9 @@ import {
     isElementInView,
     percentMoved,
     setParallaxStyles,
+    EasingFunctions,
 } from '../helpers/index';
+import { createId } from '../utils/index';
 import { VERTICAL } from '../constants';
 import Bounds from './Bounds';
 import Rect from './Rect';
@@ -54,6 +56,12 @@ export class Element {
             view.width,
             scroll.x
         );
+
+        if (this.props.easing && EasingFunctions[this.props.easing]) {
+            this.percent =
+                this.percent *
+                EasingFunctions[this.props.easing](this.percent / 100);
+        }
 
         setParallaxStyles(this.elInner, this.offsets, this.percent);
 

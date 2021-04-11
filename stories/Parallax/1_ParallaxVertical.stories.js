@@ -27,6 +27,31 @@ storiesOf('<Parallax>', module)
         );
     })
 
+    .add('vertical with y offsets and easing', () => {
+        const a0 = text('A: y[0]', '-50%');
+        const a1 = text('A: y[1]', '50%');
+        const b0 = text('B: y[0]', '50%');
+        const b1 = text('B: y[1]', '-50%');
+        return (
+            <Container scrollAxis="vertical" className={styles.elements}>
+                <Parallax
+                    y={[a0, a1]}
+                    className={styles.parallax}
+                    easing="easeInOutQuint"
+                >
+                    <Element name="A" />
+                </Parallax>
+                <Parallax
+                    y={[b0, b1]}
+                    className={styles.parallax}
+                    easing="easeInOutQuint"
+                >
+                    <Element name="B" />
+                </Parallax>
+            </Container>
+        );
+    })
+
     .add('vertical with x offsets', () => {
         const a0 = text('A: x[0]', '-50%');
         const a1 = text('A: x[1]', '50%');
@@ -38,6 +63,30 @@ storiesOf('<Parallax>', module)
                     <Element name="A" />
                 </Parallax>
                 <Parallax x={[b0, b1]} className={styles.parallax}>
+                    <Element name="B" />
+                </Parallax>
+            </Container>
+        );
+    })
+    .add('vertical with x offsets and easing', () => {
+        const a0 = text('A: x[0]', '-50%');
+        const a1 = text('A: x[1]', '50%');
+        const b0 = text('B: x[0]', '50%');
+        const b1 = text('B: x[1]', '-50%');
+        return (
+            <Container scrollAxis="vertical" className={styles.elements}>
+                <Parallax
+                    x={[a0, a1]}
+                    className={styles.parallax}
+                    easing="easeInOutQuint"
+                >
+                    <Element name="A" />
+                </Parallax>
+                <Parallax
+                    x={[b0, b1]}
+                    className={styles.parallax}
+                    easing="easeInOutQuint"
+                >
                     <Element name="B" />
                 </Parallax>
             </Container>
@@ -191,9 +240,7 @@ storiesOf('<Parallax>', module)
             <ParallaxProvider scrollAxis="horizontal">
                 <div className="horizontal">
                     <div
-                        className={`${styles.elementsHorizontal} ${
-                            styles.linearHorizontal
-                        }`}
+                        className={`${styles.elementsHorizontal} ${styles.linearHorizontal}`}
                     >
                         {elements.map((_, i) => {
                             const n = i - amount;
@@ -226,9 +273,7 @@ storiesOf('<Parallax>', module)
             <ParallaxProvider scrollAxis="horizontal">
                 <div className="horizontal">
                     <div
-                        className={`${styles.elementsHorizontal} ${
-                            styles.linearHorizontal
-                        }`}
+                        className={`${styles.elementsHorizontal} ${styles.linearHorizontal}`}
                     >
                         {elements.map((_, i) => {
                             const n = i - amount;
@@ -320,9 +365,7 @@ storiesOf('<Parallax>', module)
             <ScrollContainer scrollAxis="horizontal">
                 <div className="horizontal">
                     <div
-                        className={`${styles.elementsHorizontal} ${
-                            styles.linearHorizontal
-                        }`}
+                        className={`${styles.elementsHorizontal} ${styles.linearHorizontal}`}
                     >
                         {elements.map((_, i) => {
                             const n = i - amount;
@@ -354,9 +397,7 @@ storiesOf('<Parallax>', module)
             <ScrollContainer scrollAxis="horizontal">
                 <div className="horizontal">
                     <div
-                        className={`${styles.elementsHorizontal} ${
-                            styles.linearHorizontal
-                        }`}
+                        className={`${styles.elementsHorizontal} ${styles.linearHorizontal}`}
                     >
                         {elements.map((_, i) => {
                             const n = i - amount;

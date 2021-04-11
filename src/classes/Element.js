@@ -57,12 +57,15 @@ export class Element {
         );
 
         if (this.props.easing && EasingFunctions[this.props.easing]) {
-            this.percent =
+            setParallaxStyles(
+                this.elInner,
+                this.offsets,
                 this.percent *
-                EasingFunctions[this.props.easing](this.percent / 100);
+                    EasingFunctions[this.props.easing](this.percent / 100)
+            );
+        } else {
+            setParallaxStyles(this.elInner, this.offsets, this.percent);
         }
-
-        setParallaxStyles(this.elInner, this.offsets, this.percent);
 
         return this;
     }
@@ -84,7 +87,21 @@ export class Element {
             scroll.y
         );
 
-        setParallaxStyles(this.elInner, this.offsets, this.percent);
+        if (this.props.easing && EasingFunctions[this.props.easing]) {
+            console.log(this.percent);
+            console.log(
+                this.percent *
+                    EasingFunctions[this.props.easing](this.percent / 100)
+            );
+            setParallaxStyles(
+                this.elInner,
+                this.offsets,
+                this.percent *
+                    EasingFunctions[this.props.easing](this.percent / 100)
+            );
+        } else {
+            setParallaxStyles(this.elInner, this.offsets, this.percent);
+        }
 
         return this;
     }

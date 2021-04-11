@@ -6,7 +6,6 @@ import {
     setParallaxStyles,
     EasingFunctions,
 } from '../helpers/index';
-import { createId } from '../utils/index';
 import { VERTICAL } from '../constants';
 import Bounds from './Bounds';
 import Rect from './Rect';

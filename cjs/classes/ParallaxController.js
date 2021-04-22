@@ -162,8 +162,8 @@ function ParallaxController(_ref) {
     }
 
     var html = document.documentElement;
-    var width = window.innerWidth || html.clientWidth;
-    var height = window.innerHeight || html.clientHeight;
+    var width = html.clientWidth || window.innerWidth;
+    var height = html.clientHeight || window.innerHeight;
     return view.setSize(width, height);
   }
   /**
